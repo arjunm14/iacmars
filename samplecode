@@ -1,0 +1,18 @@
+# Define the folder and file path
+$folderPath = "C:\ExampleFolder"
+$filePath = "$folderPath\example.txt"
+
+# Create the folder if it doesn't exist
+if (-not (Test-Path -Path $folderPath)) {
+    New-Item -Path $folderPath -ItemType Directory
+}
+
+# Create the text file and write content to it
+$content = "Hello, PowerShell!"
+Set-Content -Path $filePath -Value $content
+
+# Read the content from the text file
+$readContent = Get-Content -Path $filePath
+
+# Output the content to the console
+Write-Output $readContent
